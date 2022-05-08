@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 
 import tensorflow as tf
 from tensorflow import keras
@@ -38,7 +40,14 @@ img_array = tf.expand_dims(img_array, 0) # Create a batch
 predictions = model.predict(img_array)
 score = tf.nn.softmax(predictions[0])
 
-print(
-    "\n\nLa imgen pertenece a \"{}\" con un {:.2f} porcentaje de exactitud."
+result = (
+    "\n\nLa imagen pertenece a \"{}\" con un {:.2f}% de exactitud."
     .format(class_names[np.argmax(score)], 100 * np.max(score))
 )
+# Imprimir imagen en pantalla
+img = mpimg.imread(sunflower_path)
+plt.imshow(img)
+plt.title(result) 
+plt.show()
+
+print(result)
