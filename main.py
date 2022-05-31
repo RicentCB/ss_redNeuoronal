@@ -8,7 +8,7 @@ from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
 
 # Path con imagenes
-data_dir = './images/'
+data_dir = './fotos/Cubos/'
 
 # Parametros para el "cargador"
 batch_size = 32
@@ -112,7 +112,7 @@ history = model.fit(
 )
 
 # Guardar modelo
-model.save('trainedModel.h5')
+model.save('trainedModel_cubes.h5')
 
 # RESULTADOS DE ENTRENAMIENTO
 acc = history.history['accuracy']
